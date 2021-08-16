@@ -8,7 +8,7 @@
                   <div class="card-header">Thêm sảm phẩm</div>
                   <div class="card-body">
   
-                      <form action="{{ route('insertproduct')  }}" method="POST">
+                      <form action="{{ route('insertProduct')  }}" method="POST" enctype="multipart/form-data">
                           @csrf
                           <div class="form-group row">
                               <label for="productname" class="col-md-4 col-form-label text-md-right">ProductName</label>
@@ -19,7 +19,6 @@
                                   @endif
                               </div>
                           </div>
-  
                           <div class="form-group row">
                               <label for="price" class="col-md-4 col-form-label text-md-right">Price</label>
                               <div class="col-md-6">
@@ -48,7 +47,7 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="title" class="col-md-4 col-form-label text-md-right">Title</label>
+                            <label for="installment" class="col-md-4 col-form-label text-md-right">Title</label>
                             <div class="col-md-6">
                                 <input type="title" id="title" class="form-control" name="title" required>
                                 @if ($errors->has('title'))
@@ -56,7 +55,10 @@
                                 @endif
                             </div>
                         </div>
-  
+                        <div class="form-group row"> <label for="image" class="col-md-4 col-form-label text-md-right">Image</label>
+                             <div class="col-md-3"> <input type="file" class="form-control" name="image" >
+                            </div> 
+                        </div>
                           <div class="form-group row">
                               <div class="col-md-6 offset-md-4">
                                   <div class="checkbox">

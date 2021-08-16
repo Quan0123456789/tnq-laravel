@@ -18,10 +18,11 @@
              $table->string('productname');
              $table->decimal('price', 10, 3);
              $table->decimal('discount', 10, 3);
-             $table->string('installment')->nullable();
              $table->string('description')->nullable();
              $table->string('title');
+             $table->string('image')->nullable();
              $table->timestamps();
+             $table->softDeletes();
          });
      }
 
@@ -34,4 +35,5 @@
      {
          Schema::dropIfExists('products');
      }
+     
  }
