@@ -21,6 +21,7 @@
         "tailwindcss": "^2.2.2"
     },
     "dependencies": {
+        "typeahead.js": "^0.11.1",
         "vue-router": "^3.5.2"
     }
 }

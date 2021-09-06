@@ -25,8 +25,12 @@ class ProductRepository implements ProductRepositoryInterface
     {
         return $this->product->where('id', $id)->delete();
     }
+    public function search()
+    {
+        return $this->product->where('productname')->get();
+    }
     public function productList()
     {
-        return $this->product->all();
+        return $this->product->orderBy('id','DESC')->get();
     }
 }
