@@ -58,7 +58,7 @@ class ProductController extends Controller
 
         return view('product.editproduct', ['product' => $product]); 
     }
-    public function updateProduct(ProductRequest $request, $id){
+    public function updateProduct(Request $request, $id){
 
         $dataUpdate = [
             "productname" => $request->productname,
@@ -88,7 +88,9 @@ class ProductController extends Controller
    public function search(Request $request)
     {
         if($request->has('key')){
-        $product = Product::where('productname','like','%'.$request->key.'%')->get();
+        $product = Product::where('productname','like','%'.$request->key.'%')
+                            ->orwhere('price','like','%'.$request->key.'%')
+                            ->get();
         }
     // $this->productRepository->search();
 
