@@ -22,12 +22,6 @@ class ProductController extends Controller
     {
         $this->productRepository = $productRepository;
     }
-
-    public function index()
-    {
-        return view('product.product');
-    }
-
     public function createProduct()
     {
         return view('product.createproduct');
@@ -100,7 +94,7 @@ class ProductController extends Controller
    public function productList(Request $request)
     {
     $value = $this->productRepository->productList();
-    session()->put('value', $value);
-        return view('product.product');
+    // session()->put('value', $value);
+        return view('product.product',compact('value'));
     }
 }

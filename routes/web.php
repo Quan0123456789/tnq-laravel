@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\users\BlogController;
 use App\Http\Controllers\product\ProductController;
+use App\Http\Controllers\Product\ShopController;
   
 /*
 |--------------------------------------------------------------------------
@@ -17,11 +18,16 @@ use App\Http\Controllers\product\ProductController;
 |
 */
   
-Route::get('login', [AuthController::class, 'index'])->name('login');
+Route::get('login', [AuthController::class, 'login'])->name('login');
 Route::post('post-login', [AuthController::class, 'postLogin'])->name('login.post'); 
 Route::get('registration', [AuthController::class, 'registration'])->name('register');
 Route::post('post-registration', [AuthController::class, 'postRegistration'])->name('register.post'); 
-Route::get('dashboard', [AuthController::class, 'dashboard']);
 Route::get('index', [AuthController::class, 'index']);  
 Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 
+Route::get('index', [ShopController::class, 'productList'])->name('product');
+Route::get('searchProduct', [ShopController::class, 'searchProduct'])->name('searchProduct');
+Route::post('searchProduct', [ShopController::class, 'searchProduct'])->name('searchProduct');
+Route::get('productDetail/{id}', [ShopController::class, 'productDetail'])->name('productDetail');
+Route::post('productDetail/{id}', [ShopController::class, 'productDetail'])->name('productDetail');
+Route::get('category', [ShopController::class, 'category'])->name('category');

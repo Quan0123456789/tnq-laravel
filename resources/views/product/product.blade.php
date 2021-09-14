@@ -7,7 +7,7 @@
                 <h3>Sản phẩm</h3>
             </div>
             <nav class="nav nav-tabs">
-                <a class="nav-link" id="home-tab" data-toggle="tab" href="#home">Trang chủ</a>
+                <a class="nav-link" id="home-tab" data-toggle="tab" href=" ">Trang chủ</a>
                 <a class="nav-link" id="product-tab" data-toggle="tab" href="{{route('users')}}">Quản lý User</a>
                 <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact">Thống kê</a>
                 <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact">Chương trình khuyến mại</a>
@@ -23,11 +23,11 @@
             </div>
         </div>
     </div>
-    @if ($message = Session::get('success'))
+    {{-- @if ($message = Session::get('success'))
         <div class="alert alert-success">
             <p>{{ $message }}</p>
         </div>
-    @endif
+    @endif --}}
     <table class="table table-bordered">
         <tr>
             <th>ProductName</th>
@@ -38,7 +38,7 @@
             <th>Image</th>
             <th width="280px">Hành động</th>
         </tr>
-        @foreach (session('value') as $data)
+        @foreach ($value as $data)
             <tr>
                 <td>{{ $data->productname }}</td>
                 <td>{{ $data->price }}.đ</td>

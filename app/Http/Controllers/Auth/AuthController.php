@@ -12,12 +12,10 @@ use Hash;
   
 class AuthController extends Controller
 {
-
-    public function index()
+    public function login()
     {
         return view('auth.login');
-    }  
-      
+    } 
     public function registration()
     {
         return view('auth.registration');
@@ -32,7 +30,7 @@ class AuthController extends Controller
         ]);
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
-            return redirect()->intended('dashboard')
+            return redirect()->intended('index')
                         ->withSuccess('You have Successfully loggedin');
         }
         return redirect("login")->with('notice','Sai email hoặc mật khẩu');
@@ -46,12 +44,12 @@ class AuthController extends Controller
         ]);   
         $data = $request->all();
         $check = $this->create($data);
-        return redirect('dashboard')->with('alert','Đăng ký thành công!');
+        return redirect('index')->with('alert','Đăng ký thành công!');
     }
-    public function dashboard()
+    public function index()
     {
         if(Auth::check()){
-            return view('dashboard');
+            return view('product.index');
         }
         return redirect("login")->withSuccess('Bạn không được cấp quyền');
     }
